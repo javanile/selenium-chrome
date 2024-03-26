@@ -9,6 +9,7 @@ services:
     ports:
       - 4444:4444
       - 7900:7900
+    cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
 
   apache:
     image: php:8.2-apache
