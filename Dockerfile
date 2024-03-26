@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install -y \
     traceroute \
 	&& rm -rf /var/lib/apt/lists/*
 
+RUN echo '<script>setTimeout(()=>{window.location="vnc.html?autoconnect=true"},5000)</script>' >> /opt/bin/noVNC/index.html
+
 COPY socat.sh /opt/bin/socat.sh
 COPY socat.conf /etc/supervisor/conf.d/socat.conf
 
