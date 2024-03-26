@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+
+  selenium:
+    build: .
+    environment:
+      - LOCALHOST_PORTS=8080
+    ports:
+      - 4444:4444
+      - 7900:7900
+
+  apache:
+    image: php:8.2-apache
+    volumes:
+      - ./tests/fixtures/php:/var/www/html
+    ports:
+      - 8080:80
